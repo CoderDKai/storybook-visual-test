@@ -2,11 +2,7 @@
 </script>
 
 <template>
-  <div>
+  <div class="text-[red]">
     Hello
   </div>
 </template>
-
-<style scoped>
-
-</style>
