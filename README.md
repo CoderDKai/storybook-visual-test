@@ -1,5 +1,46 @@
-# Vue 3 + TypeScript + Vite
+# Storybook Visual Test (Vue 3 + TypeScript + Vite)
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+This project uses Storybook and Chromatic for visual regression testing. To keep secrets safe and maintainable, the Chromatic project token is read from an environment variable instead of being hardcoded.
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+## Getting Started
+
+- Install dependencies: `npm install`
+- Start Storybook: `npm run storybook`
+
+## Chromatic Setup (no hardcoded tokens)
+
+Chromatic requires a project token. Set it using the environment variable `CHROMATIC_PROJECT_TOKEN`.
+
+1) Local development
+
+- Copy `.env.example` to `.env`
+- Fill in your token from Chromatic project settings
+
+Example `.env`:
+
+```bash
+CHROMATIC_PROJECT_TOKEN=chpt_XXXXXXXXXXXXXXXX
+```
+
+Run Chromatic locally:
+
+```bash
+npm run chromatic
+```
+
+1) CI setup
+
+- GitHub Actions: add a repository secret named `CHROMATIC_PROJECT_TOKEN` and ensure your workflow exports it in the environment before running `npm run chromatic`.
+- GitLab CI: add a CI/CD variable `CHROMATIC_PROJECT_TOKEN` and make it available to the job running Chromatic.
+- Other CI: set the environment variable in your CI provider's settings.
+
+The npm script `chromatic` now resolves the token from the environment and does not expose it in source control.
+
+## Scripts
+
+- `dev`: Vite dev server
+- `build`: Type checking + Vite build
+- `preview`: Preview production build
+- `storybook`: Run Storybook on port 6006
+- `build-storybook`: Build static Storybook site
+- `chromatic`: Publish Storybook to Chromatic (uses CHROMATIC_PROJECT_TOKEN)

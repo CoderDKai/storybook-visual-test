@@ -16,7 +16,15 @@ export default defineConfig({
     vue(),
     tailwindcss(),
   ],
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+    },
+  },
   test: {
+    environment: 'jsdom',
+    globals: true,
+    include: ['src/**/*.{test,spec}.{js,ts,vue}'],
     projects: [{
       extends: true,
       plugins: [
