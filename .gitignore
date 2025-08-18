@@ -24,3 +24,7 @@ dist-ssr
 
 *storybook.log
 storybook-static
+
+
+# Local environment files
+.env
