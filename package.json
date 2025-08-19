@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "chromatic": "chromatic"
+    "chromatic": "chromatic",
+    "knip": "knip"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.12",
@@ -30,6 +31,7 @@
     "@vue/tsconfig": "^0.7.0",
     "chromatic": "^13.1.3",
     "jsdom": "^26.1.0",
+    "knip": "^5.62.0",
     "playwright": "^1.54.2",
     "storybook": "^9.1.2",
     "typescript": "~5.8.3",
